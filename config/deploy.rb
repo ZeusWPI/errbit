@@ -19,6 +19,7 @@ set :pty, true
 set :ssh_options, forward_agent: true
 
 set :linked_files, fetch(:linked_files, []) + %w(
+  .env
   config/config.yml
   config/mongoid.yml
   config/initializers/secret_token.rb
