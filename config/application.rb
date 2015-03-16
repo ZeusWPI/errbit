@@ -26,6 +26,8 @@ module Errbit
       config.serve_static_assets = Errbit::Config.serve_static_assets
     end
 
+    config.assets.prefix = "/errbit/assets"
+
     initializer "errbit.mongoid", before: "mongoid.load-config" do
       require Rails.root.join('config/mongo')
     end
