@@ -401,7 +401,6 @@ DEPENDENCIES
   binding_of_caller
   campy
   capistrano
-  capistrano-bundler
   capistrano-rails
   capistrano-rvm
   capybara
