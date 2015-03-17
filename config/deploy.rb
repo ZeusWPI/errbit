@@ -29,6 +29,7 @@ set :linked_dirs, fetch(:linked_dirs, []) + %w(
   log
   tmp/cache tmp/pids tmp/sockets
   vendor/bundle
+  public/system
 )
 
 # check out capistrano-rbenv documentation
