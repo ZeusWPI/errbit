@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-RAILS_VERSION = '~> 4.1.8'
+RAILS_VERSION = '~> 4.1.11'
 
 send :ruby, ENV['GEMFILE_RUBY_VERSION'] if ENV['GEMFILE_RUBY_VERSION']
 
@@ -28,8 +28,8 @@ gem 'rails_autolink'
 gem 'hoptoad_notifier', "~> 2.4"
 gem 'draper'
 
-gem 'errbit_plugin', github: 'errbit/errbit_plugin'
-gem 'errbit_github_plugin', github: 'errbit/errbit_github_plugin'
+gem 'errbit_plugin'
+gem 'errbit_github_plugin'
 
 gem 'dotenv-rails'
 
@@ -99,6 +99,7 @@ group :heroku, :production do
   gem 'unicorn', require: false, platform: 'ruby'
 end
 
+gem 'therubyracer', :platform => :ruby  # C Ruby (MRI) or Rubinius, but NOT Windows
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
@@ -107,3 +108,6 @@ gem 'uglifier'
 gem 'jquery-rails', '~> 2.1.4'
 gem 'pjax_rails'
 gem 'underscore-rails'
+
+ENV['USER_GEMFILE'] ||= './UserGemfile'
+eval_gemfile ENV['USER_GEMFILE'] if File.exist?(ENV['USER_GEMFILE'])

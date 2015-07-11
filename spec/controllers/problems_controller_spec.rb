@@ -218,9 +218,7 @@ describe ProblemsController, type: 'controller' do
       @err = Fabricate(:err)
     end
 
-    it 'finds the app and the err' do
-      expect(App).to receive(:find).with(@err.app.id.to_s).and_return(@err.app)
-      expect(@err.app.problems).to receive(:find).and_return(@err.problem)
+    it 'finds the app and the problem' do
       put :resolve, :app_id => @err.app.id, :id => @err.problem.id
       expect(controller.app).to eq @err.app
       expect(controller.problem).to eq @err.problem
@@ -405,12 +403,12 @@ describe ProblemsController, type: 'controller' do
 
       it "should display a message about 1 err" do
         post :resolve_several, :problems => [@problem2.id.to_s]
-        expect(flash[:success]).to match(/1 err has been resolved/)
+        expect(flash[:success]).to match(/1 error has been resolved/)
       end
 
       it "should display a message about 2 errs" do
         post :resolve_several, :problems => [@problem1.id.to_s, @problem2.id.to_s]
-        expect(flash[:success]).to match(/2 errs have been resolved/)
+        expect(flash[:success]).to match(/2 errors have been resolved/)
         expect(controller.selected_problems).to eq [@problem1, @problem2]
       end
     end
