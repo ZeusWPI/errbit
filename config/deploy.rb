@@ -12,7 +12,7 @@ lock '3.4.0'
 set :application, 'errbit'
 set :repo_url, 'https://github.com/zeuswpi/errbit.git'
 set :branch, ENV['branch'] || 'master'
-set :deploy_to, '/home/errbit/app'
+set :deploy_to, '/home/errbit/production'
 set :keep_releases, 5
 
 set :pty, true
@@ -20,7 +20,6 @@ set :ssh_options, forward_agent: true
 
 set :linked_files, fetch(:linked_files, []) + %w(
   .env
-  config/config.yml
   config/mongoid.yml
   config/initializers/secret_token.rb
 )
