@@ -5,3 +5,5 @@ server 'zeus.ugent.be', user: 'errbit', roles: %w{web app db}, ssh_options: {
 }
 
 set :rails_env, 'production'
+set :rbenv_type, :system
+set :rbenv_ruby, File.read('.ruby-version').strip
